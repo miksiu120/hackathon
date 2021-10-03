@@ -1,0 +1,71 @@
+@media (min-width:996px)  {
+    .section-title {
+		font-size: 3.5rem;
+	}
+    .nav{
+        padding: 2.5em;
+        justify-content: space-evenly;
+        &__burger{
+            display: none;
+        }
+        &__menu{
+            display: block;
+        }
+    }
+     .header{
+        &__img{
+            background-image: url("../img/background/dolomites-g18009b519_1920.jpg");
+            &__text {
+				font-size: 2.7rem;
+			}
+        }
+       
+    }
+    .main {
+        .tidbits{
+            background-image: url(../img/background/treeBig.jpg);
+            &__area{
+                padding-top: 4em;
+                gap: 5em;
+                &__tidbit{
+                  
+                    font-size: 2.7rem;
+                }
+                &--btn{
+                    font-size: 2rem;
+                    width: 25%;
+                }
+            }
+        }
+    
+        .game{
+            &__box{
+                
+                flex-direction: row;
+                justify-content: space-between;
+                &-img{
+                    margin-left:3.5rem;
+                }
+                &-text{
+                    h2{
+                        font-size: 4.5rem;
+                        margin: 1em 0.5em 0.5em ;
+
+                    }
+                    p{
+                        font-size: 2.4rem;
+                        margin: 0.5em 0;
+                    }
+                }
+                &-btn{
+                    margin: 1.5em 0;
+                    padding: 0.5em 1em;
+                    font-size: 2rem;
+                  
+                }
+            }
+        }
+    }
+    
+    
+}

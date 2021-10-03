@@ -1,0 +1,370 @@
+@import './colors';
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 100%;
+}
+.section-title {
+	position: relative;
+	font-size: 2rem;
+	margin-bottom: 2em;
+	padding: 1em;
+	text-align: center;
+}
+.section-title::after {
+	content: '';
+	position: absolute;
+	width: 30%;
+	height: 3px;
+	bottom: 10%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background-color: $sad-color;
+	border-radius: 8px;
+}
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+// body {
+// }
+
+.nav {
+	z-index: 2137;
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-width: 100%;
+	text-transform: uppercase;
+	padding: 1.5em 3em;
+	text-shadow: 1px 1px 2px #222;
+	border-bottom: 2px solid $dark-color;
+	background-color: rgba(0, 0, 0, 0.7);
+	&__logo {
+		font-family: 'Gemunu Libre', sans-serif;
+		font-size: 2rem;
+		color: $white-color;
+		letter-spacing: 2px;
+		.our {
+			color: $main-color;
+		}
+		cursor: pointer;
+	}
+
+	&__menu {
+		font-weight: 700;
+		display: none;
+		font-size: 2rem;
+		&__item {
+			position: relative;
+			padding: 0.5em 1em;
+			margin: 0 1em;
+			text-decoration: none;
+		
+			color: $white-color;
+			&::before{
+				content:'';
+				position: absolute;
+				height: 3px;
+				border-radius: 5px;
+				width: 0;
+				left:50%;
+				bottom: 5%;
+				transform: translateX(-50%);
+				transition: 0.3s width ease-in-out;
+				background-color:$white-color;
+				overflow: hidden;
+				
+			}
+		}
+		&__item:hover::before
+		{
+
+			width: 70%;
+		}
+	}
+	&__burger {
+		font-size: 3rem;
+		padding: 0.5em 1em;
+		color: $white-color;
+	}
+}
+.header {
+	height: 100vh;
+	width: 100%;
+	&__img {
+		position: relative;
+		background-image: url('../img/background/dolomites-gee42df30d_640.jpg');
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+		background-position: center;
+		background-size: cover;
+		&__text {
+			font-weight: 300;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			color: $white-color;
+			font-size: 2rem;
+			.our {
+				color: $main-color;
+			}
+			transform: translate(-50%, -50%);
+		}
+		&--btn {
+			margin: 1.5em 1em;
+			padding: 0.5em 1em;
+			border-radius: 8px;
+			border: none;
+			font-size: 1.5rem;
+			cursor: pointer;
+		}
+	}
+	&__shadow {
+		background-color: rgba(0, 7, 10, 0.62);
+		width: 100%;
+		height: 100%;
+	}
+	&__clickIcon {
+		cursor: pointer;
+		display: none;
+		position: absolute;
+		bottom: 7%;
+		left: 50%;
+		transform: translateX(-50%);
+		animation: 6s windy infinite linear;
+		.fas {
+			font-size: 70px;
+			color: $white-color;
+			position: absolute;
+			bottom: 50%;
+			left: 50%;
+			transform: translate(-55%, 55%);
+		}
+	}
+}
+
+.main {
+	.pollution {
+		width: 100%;
+		height: auto;
+		padding: 3em 0;
+		padding-bottom: 5.2em;
+		background-color: $white-color;
+		&__boxes {
+			display: grid;
+			align-items: center;
+			justify-content: center;
+			grid-template-rows: 1fr 1fr 1fr 1fr;
+			grid-template-columns: 1fr;
+			gap: 2em;
+		}
+		&__box {
+			z-index: 200;
+			position: relative;
+			margin: 0 auto;
+			height: 375px;
+			width: 250px;
+			grid-row: 1/2;
+			grid-column: 1/2;
+			background-image: url('../img/background/garbage-gfa1a2d140_640.jpg');
+			background-repeat: no-repeat;
+			background-position: 70% 50%;
+			background-size: cover;
+			object-fit: contain;
+			border-radius: 10px;
+			&-shadow {
+				width: 100%;
+				height: 100%;
+				background: rgb(45, 97, 114);
+				background: linear-gradient(
+					0deg,
+					rgba(147, 190, 27, 0.183) 27%,
+					rgba(51, 51, 51, 0.7343312324929971) 65%
+				);
+				border-radius: 10px;
+			}
+			&-title {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				font-size: 3rem;
+				color: $white-color;
+				transform: translate(-50%, -50%);
+				text-shadow: 2px 2px 5px #000;
+			}
+
+			p {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				font-size: 2rem;
+				color: $white-color;
+				padding: 2em 1em;
+				border-radius: 10px;
+				transition: 0.5s;
+				opacity: 0;
+				z-index: -1;
+				@include dark-colorGradient;
+				perspective: 500px;
+			}
+			transition: 0.4s transform;
+			&:hover {
+				animation: 0.70s hideFromUp forwards;
+			}
+			&:hover p {
+				animation: 0.70s showFromDown forwards;
+			}
+		}
+		&__box1 {
+			background-image: url('../img/garbage-gfa1a2d140_640.jpg');
+			grid-row: 1/2;
+			grid-column: 1/2;
+		}
+		&__box2 {
+			background-image: url('../img/power-station-gd3ab7ab9c_640.jpg');
+			grid-row: 2/3;
+			grid-column: 1/2;
+		}
+		&__box3 {
+			background-image: url('../img/beach-g5f64a85aa_640.jpg');
+			grid-row: 3/4;
+			grid-column: 1/2;
+		}
+		&__box4 {
+			background-image: url('../img/deforestation-g77feb2a99_640.jpg');
+			background-position: 40% 50%;
+			grid-row: 4/5;
+			grid-column: 1/2;
+		}
+	}
+	.tidbits {
+		background-image: url('../img/background/treeSmall.jpg');
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		&__shadow {
+			padding: 4em 2em;
+			width: 100%;
+			height: 100%;
+			background-color: $main-color-darker;
+		}
+		.section-title {
+			margin-bottom: 0;
+			padding-top: 0;
+			color: $white-color;
+			&::after {
+				background: $white-color;
+			}
+		}
+		&__area {
+			padding: 2em 0;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 1fr;
+			align-items: center;
+			justify-content: center;
+
+			gap: 3em;
+			&__tidbit {
+				grid-column: 1/2;
+				grid-row: 1/2;
+				font-style: italic;
+				font-size: 1.6rem;
+				color: $white-color;
+				margin: 0 auto;
+				padding: 0 6em;
+			}
+			&--btn {
+				grid-column: 1/2;
+				grid-row: 2/3;
+				cursor: pointer;
+				border-radius: 10px;
+				border: none;
+				width: 45%;
+				padding: 0.6em 1.3em;
+				margin: 0 auto;
+			}
+		}
+	}
+	.game {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'VT323', monospace;
+		background-color: $white-color;
+		&__box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			margin: 4em 2em;
+			padding: 2em 1em;
+			width: clamp(320px, 70vw, 1200px);
+			height: 55vh;
+			@include happy-colorGradient;
+			border-radius: 15px;
+			box-shadow: 0px 0px 5px rgb(70, 70, 70);
+			&-img {
+				background-size: contain;
+				background-position: center;
+				object-fit: contain;
+				width: clamp(150px, 70%, 500px);
+				border-radius: 20px;
+				margin: 0.5em 2.5em;
+				border: 4px solid black;
+			}
+			&-text {
+				color: $white-color;
+				margin: 1em 3em;
+				text-shadow: 2px 2px 2px black;
+				h2 {
+					font-size: 2.2rem;
+				}
+				p {
+					text-align: left;
+					font-size: 1.5rem;
+				}
+			}
+			&-btn {
+				margin: 1em 1em;
+				padding: 0.5em 1em;
+				border-radius: 10px;
+				border: none;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.footer{
+	font-size: 1.5rem;
+	width: 100%;
+	background-color: $dark-color;
+	color: $white-color;
+	padding: 1em 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+@import './small';
+@import './medium';
+@import './large';
+@import './xlarge';
+@import './animations';
