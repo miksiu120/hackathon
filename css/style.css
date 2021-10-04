@@ -114,6 +114,59 @@ body {
   color: #dedede;
 }
 
+.mobileNav {
+  width: 100vw;
+  position: fixed;
+  height: 100%;
+  background-color: #104212;
+  z-index: 2139;
+  right: 0;
+  -webkit-transform: translate(100%);
+          transform: translate(100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 3rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.mobileNav__arrow {
+  color: #dedede;
+  font-size: 4rem;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  padding: 0.25em 0.4em;
+}
+
+.mobileNav__menu a {
+  color: #dedede;
+  padding: 0.4em 0.8em;
+  text-decoration: none;
+  display: block;
+  text-transform: capitalize;
+  margin: 1em 0.5em;
+  position: relative;
+  text-align: center;
+}
+
+.mobileNav__menu a::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #dedede;
+  bottom: 0;
+  left: 0;
+}
+
 .header {
   height: 100vh;
   width: 100%;
@@ -146,12 +199,40 @@ body {
 }
 
 .header__img--btn {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  background-color: #dedede;
+  color: #000;
   margin: 1.5em 1em;
   padding: 0.5em 1em;
   border-radius: 8px;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.header__img--btn::before {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  position: absolute;
+  content: '';
+  width: 115%;
+  height: 100%;
+  top: 50%;
+  left: -50%;
+  -webkit-transform: translate(-20%, -100%) rotate(-45deg);
+          transform: translate(-20%, -100%) rotate(-45deg);
+  background-color: #5d5d775b;
+}
+
+.header__img--btn:hover::before {
+  -webkit-transform: translate(80%, 100%) rotate(-45deg);
+          transform: translate(80%, 100%) rotate(-45deg);
 }
 
 .header__shadow {
@@ -270,13 +351,13 @@ body {
 }
 
 .main .pollution__box:hover {
-  -webkit-animation: 0.70s hideFromUp forwards;
-          animation: 0.70s hideFromUp forwards;
+  -webkit-animation: 0.7s hideFromUp forwards;
+          animation: 0.7s hideFromUp forwards;
 }
 
 .main .pollution__box:hover p {
-  -webkit-animation: 0.70s showFromDown forwards;
-          animation: 0.70s showFromDown forwards;
+  -webkit-animation: 0.7s showFromDown forwards;
+          animation: 0.7s showFromDown forwards;
 }
 
 .main .pollution__box1 {
@@ -321,13 +402,15 @@ body {
 }
 
 .main .tidbits {
+  position: relative;
   background-image: url("../img/background/treeSmall.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 100%;
+  height: clamp(300px, 80vh, 550px);
+  position: relative;
 }
 
 .main .tidbits__shadow {
@@ -338,6 +421,11 @@ body {
 }
 
 .main .tidbits .section-title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   margin-bottom: 0;
   padding-top: 0;
   color: #dedede;
@@ -347,50 +435,33 @@ body {
   background: #dedede;
 }
 
-.main .tidbits__area {
-  padding: 2em 0;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 3em;
-}
-
-.main .tidbits__area__tidbit {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
+.main .tidbits__tidbit {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   font-style: italic;
-  font-size: 1.6rem;
   color: #dedede;
   margin: 0 auto;
-  padding: 0 6em;
+  padding: 1em 0em;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
-.main .tidbits__area--btn {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
+.main .tidbits--btn {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  display: inline-block;
   cursor: pointer;
   border-radius: 10px;
   border: none;
-  width: 45%;
-  padding: 0.6em 1.3em;
-  margin: 0 auto;
+  padding: 0.5em 1em;
+  font-weight: bolder;
+  font-size: 2rem;
 }
 
 .main .game {
@@ -421,10 +492,10 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 4em 2em;
+  margin: 4em 1em;
   padding: 2em 1em;
-  width: clamp(320px, 70vw, 1200px);
-  height: 55vh;
+  width: clamp(280px, 70vw, 1200px);
+  height: clamp(300px, 55vh, 600px);
   background-color: #2b4162;
   background-image: linear-gradient(300deg, #1bbe28 32%, #69868f 75%);
   border-radius: 15px;
@@ -437,7 +508,7 @@ body {
   background-position: center;
   -o-object-fit: contain;
      object-fit: contain;
-  width: clamp(150px, 70%, 500px);
+  width: clamp(150px, 40%, 500px);
   border-radius: 20px;
   margin: 0.5em 2.5em;
   border: 4px solid black;
@@ -459,11 +530,16 @@ body {
 }
 
 .main .game__box-btn {
+  font-family: 'VT323', monospace;
   margin: 1em 1em;
   padding: 0.5em 1em;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  background-color: #201bbe;
+  color: #dedede;
+  -webkit-box-shadow: 2px 2px 6px rgba(34, 34, 34, 0.445);
+          box-shadow: 2px 2px 6px rgba(34, 34, 34, 0.445);
 }
 
 .footer {
@@ -564,11 +640,16 @@ body {
     padding-top: 3em;
     gap: 4em;
   }
-  .main .tidbits__area__tidbit {
-    font-size: 2.4rem;
+  .main .tidbits__area .tidbits {
+    background-image: url(../img/background/treeBig.jpg);
+  }
+  .main .tidbits__area .tidbits__tidbit {
+    top: 32%;
+  }
+  .main .tidbits__area .tidbits--btn {
+    width: 25%;
   }
   .main .tidbits__area--btn {
-    font-size: 2rem;
     width: 28%;
   }
 }
@@ -589,6 +670,9 @@ body {
   .nav__menu {
     display: block;
   }
+  .mobileNav {
+    display: none;
+  }
   .header__img {
     background-image: url("../img/background/dolomites-g18009b519_1920.jpg");
   }
@@ -598,15 +682,11 @@ body {
   .main .tidbits {
     background-image: url(../img/background/treeBig.jpg);
   }
-  .main .tidbits__area {
-    padding-top: 4em;
-    gap: 5em;
+  .main .tidbits__tidbit {
+    top: 30%;
+    font-size: 3rem;
   }
-  .main .tidbits__area__tidbit {
-    font-size: 2.7rem;
-  }
-  .main .tidbits__area--btn {
-    font-size: 2rem;
+  .main .tidbits--btn {
     width: 25%;
   }
   .main .game__box {
@@ -632,7 +712,7 @@ body {
   .main .game__box-btn {
     margin: 1.5em 0;
     padding: 0.5em 1em;
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 
@@ -809,5 +889,15 @@ body {
     -webkit-transform: translate(0%) translateX(-50%);
             transform: translate(0%) translateX(-50%);
   }
+}
+
+.move {
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+
+.moveBack {
+  -webkit-transform: translate(100%);
+          transform: translate(100%);
 }
 /*# sourceMappingURL=style.css.map */

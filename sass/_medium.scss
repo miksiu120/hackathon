@@ -62,12 +62,19 @@
             &__area{
                 padding-top: 3em;
                 gap: 4em;
-                &__tidbit{
-                  
-                    font-size: 2.4rem;
-                }
+                .tidbits{
+					background-image: url(../img/background/treeBig.jpg);
+						
+						&__tidbit{
+							top:32%;
+							
+						}
+						&--btn{
+							width: 25%;
+						}
+				}
                 &--btn{
-                    font-size: 2rem;
+                  
                     width: 28%;
                 }
             }
