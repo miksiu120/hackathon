@@ -23,7 +23,7 @@ const randomNumber = (min, max) => {
 }
 
 const changeTidbit= function(){
-    titbit.innerText=titbits[randomNumber(0,8)];
+    titbit.innerText=titbits[randomNumber(0,12)];
 }
 
 
@@ -35,7 +35,7 @@ const  moveBackMobileNav  = function() {
 }
 
 
-
+setInterval(console.log("Siema"),500)
 titbitBtn.addEventListener("click",changeTidbit)
 burgerBtn.addEventListener("click", moveMobileNav)
 mobileNavBtn.addEventListener("click", moveBackMobileNav)

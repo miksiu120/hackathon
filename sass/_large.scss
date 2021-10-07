@@ -20,6 +20,7 @@
 			background-image: url('../img/background/dolomites-g18009b519_1920.jpg');
 			&__text {
 				font-size: 2.7rem;
+				
 			}
 		}
 	}
@@ -42,18 +43,26 @@
                 gap: 3.5em;
             }
 			&__text {
-				padding-bottom: 2.5em;
-
+				
+				padding: 1.5em 1em 1.5em 2.5em;
 				h3 {
 					font-size: 2.7rem;
 				}
 				ul {
-					font-size: 1.6rem;
+					padding: 0.3em 1em;
+					font-size: 1.7rem;
 
 					li {
 						margin: 0.3em 0.2em;
 					}
 				}
+			}
+			&__prosAndCons{
+				flex-direction: row;
+				h4{
+					font-size: 1.8rem;
+				}
+				
 			}
 		}
 		.game {
@@ -67,11 +76,7 @@
 					h2 {
 						font-size: 4.5rem;
 						margin: 1em 0.5em 0.5em;
-					}
-					p {
-						font-size: 2.4rem;
-						margin: 0.5em 0;
-					}
+					}		
 				}
 				&-btn {
 					margin: 1.5em 0;
