@@ -42,3 +42,5 @@ mobileNavBtn.addEventListener("click", moveBackMobileNav)
 navList.forEach(x =>{
     x.addEventListener("click",moveBackMobileNav)
 })
+
+

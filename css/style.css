@@ -65,6 +65,15 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 .nav__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
   font-family: "Gemunu Libre", sans-serif;
   font-size: 2rem;
@@ -74,6 +83,13 @@ body {
 }
 .nav__logo .our {
   color: #1bbe28;
+}
+.nav__logo-img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 5rem;
+  height: auto;
+  margin: 0 0.5em;
 }
 .nav__menu {
   font-weight: 700;
@@ -115,7 +131,9 @@ body {
   width: 100vw;
   position: fixed;
   height: 100%;
-  background-color: #104212;
+  background-image: url(../img/background/forest-g452652d9a_640.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: 2139;
   right: 0;
   -webkit-transform: translate(100%);
@@ -133,6 +151,12 @@ body {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+.mobileNav__shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0e5214e1;
+}
 .mobileNav__arrow {
   color: #dedede;
   font-size: 4rem;
@@ -141,7 +165,7 @@ body {
   left: 10%;
   padding: 0.25em 0.4em;
 }
-.mobileNav__menu a {
+.mobileNav__menu-item {
   color: #dedede;
   padding: 0.4em 0.8em;
   text-decoration: none;
@@ -151,7 +175,7 @@ body {
   position: relative;
   text-align: center;
 }
-.mobileNav__menu a::after {
+.mobileNav__menu-item::after {
   position: absolute;
   content: "";
   width: 100%;
@@ -159,6 +183,13 @@ body {
   background: #dedede;
   bottom: 0;
   left: 0;
+}
+.mobileNav__menu-img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 12rem;
+  height: auto;
+  margin: 0 0.5em;
 }
 
 .header {
@@ -430,14 +461,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 4em 1em;
+  margin: 3em 1em;
   padding: 2em 1em;
   width: clamp(280px, 90vw, 1200px);
   height: clamp(300px, 55vh, 600px);
@@ -453,11 +481,19 @@ body {
   -o-object-fit: contain;
      object-fit: contain;
   width: clamp(150px, 40%, 500px);
-  border-radius: 20px;
   margin: 0.5em 2.5em;
-  border: 4px solid black;
+  border-radius: 15px;
 }
 .main .game__box-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   color: #dedede;
   margin: 1em 3em;
   text-shadow: 2px 2px 2px black;
@@ -472,7 +508,7 @@ body {
 .main .game__box-btn {
   font-family: "VT323", monospace;
   margin: 1em 1em;
-  padding: 0.5em 1em;
+  padding: 0.6em 1em;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -480,6 +516,10 @@ body {
   color: #dedede;
   -webkit-box-shadow: 2px 2px 6px rgba(34, 34, 34, 0.445);
           box-shadow: 2px 2px 6px rgba(34, 34, 34, 0.445);
+  width: 30%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 2rem;
 }
 .main .segregation {
   min-height: 90vh;
@@ -556,7 +596,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 1em 0.5em;
   width: clamp(70px, 30vw, 170px);
   margin: 0 auto;
 }
@@ -772,16 +811,22 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   .main .game__box-img {
     margin-left: 3.5rem;
   }
+  .main .game__box-text {
+    min-height: 50%;
+  }
   .main .game__box-text h2 {
     font-size: 4.5rem;
-    margin: 1em 0.5em 0.5em;
+    padding: 0.5em 0;
+  }
+  .main .game__box-text p {
+    font-size: 2.8rem;
+    padding: 0.2em 0;
   }
   .main .game__box-btn {
     margin: 1.5em 0;

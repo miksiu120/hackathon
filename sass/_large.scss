@@ -67,16 +67,24 @@
 		}
 		.game {
 			&__box {
+				
 				flex-direction: row;
-				justify-content: space-between;
+				justify-content:space-around;
 				&-img {
 					margin-left: 3.5rem;
 				}
 				&-text {
+					min-height: 50%;
+					
 					h2 {
 						font-size: 4.5rem;
-						margin: 1em 0.5em 0.5em;
-					}		
+						padding: 0.5em 0;
+					}	
+					p{
+						font-size: 2.8rem;
+						padding: 0.2em 0;
+					}
+
 				}
 				&-btn {
 					margin: 1.5em 0;
