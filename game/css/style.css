@@ -61,7 +61,7 @@ body {
 }
 
 .game {
-  margin: 2em 0.5em;
+  margin: 2em 0.5em 7.5em 0.5em;
   padding: 1.5em 2em;
   border: 2px solid black;
   width: clamp(400px, 50vw, 750px);
@@ -158,14 +158,15 @@ body {
 }
 
 .bin {
-  background-color: red;
+  background-image: url("../img/bin.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
 }
 
 .fruit {
   background-repeat: no-repeat;
   background-position: center;
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
   overflow: hidden;
 }
 
@@ -181,16 +182,12 @@ body {
   background-image: url("../img/trash_bottle1.svg");
 }
 
-.fruit3 {
-  background-image: url("../img/trash_cigarette.svg");
-}
-
 .fruit4 {
   background-image: url("../img/trash_can.svg");
 }
 
 .fruit5 {
-  background-image: url("../img/trash_banana.svg");
+  background-image: url("../img/trash_cigarette.svg");
 }
 
 .fruit6 {
@@ -198,7 +195,23 @@ body {
 }
 
 .fruit7 {
-  background-image: url("../img/trash_trash_bag");
+  background-image: url("../img/trash_bag.svg");
+}
+
+.fruit8 {
+  background-image: url("../img/trash_fish.svg");
+}
+
+.fruit9 {
+  background-image: url("../img/trash_juice.svg");
+}
+
+.fruit10 {
+  background-image: url("../img/trash_tire.svg");
+}
+
+.fruit11 {
+  background-image: url("../img/trash_notebook.svg");
 }
 
 .lostHeart {
@@ -207,9 +220,18 @@ body {
 }
 
 .arrow {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: fixed;
   padding: 0.5em 0.8em;
+  width: 40%;
   font-size: 5rem;
   bottom: 0;
   color: rgba(255, 255, 255, 0.674);
@@ -217,12 +239,31 @@ body {
   border-radius: 15px;
 }
 .arrow-left {
-  left: 10%;
+  left: 0%;
 }
 .arrow-right {
-  right: 10%;
+  right: 0%;
 }
 
+@media (min-width: 576px) {
+  .game {
+    margin-top: 2em;
+  }
+
+  .arrow {
+    margin: 0.2em;
+    padding: 0.6em 1.2em;
+    font-size: 5rem;
+    bottom: 0;
+    color: rgba(255, 255, 255, 0.674);
+  }
+  .arrow-left {
+    left: 10%;
+  }
+  .arrow-right {
+    right: 10%;
+  }
+}
 @media (min-width: 967px) {
   .nav {
     -ms-flex-pack: distribute;
@@ -239,6 +280,7 @@ body {
     grid-row: 1/2;
   }
   .game__hearts {
+    align-self: start;
     grid-column: 1/2;
     grid-row: 2/3;
   }
@@ -247,21 +289,28 @@ body {
     grid-row: 1/6;
   }
   .game .arrow {
+    width: auto;
     margin: 0.2em;
-    display: block;
-    position: fixed;
     padding: 0.6em 1.2em;
     font-size: 5rem;
     bottom: 0;
     color: rgba(255, 255, 255, 0.674);
-    background-color: #22222233;
-    border-radius: 15px;
   }
   .game .arrow-left {
     left: 30%;
   }
   .game .arrow-right {
     right: 30%;
+  }
+
+  .bin {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+
+  .fruit {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
 }
 @media (min-width: 1200px) {
@@ -274,5 +323,15 @@ body {
   }
   .game .arrow-right {
     right: 38%;
+  }
+
+  .bin {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+
+  .fruit {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
   }
 }/*# sourceMappingURL=style.css.map */

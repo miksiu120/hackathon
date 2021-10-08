@@ -16,8 +16,6 @@ body {
 	background-color: #333;
 }
 
-
-
 .nav {
 	z-index: 2137;
 	position: absolute;
@@ -32,16 +30,15 @@ body {
 	border-bottom: 2px solid $dark-color;
 	background-color: rgba(0, 0, 0, 0.7);
 	font-size: 3rem;
-	&__backUp{
+	&__backUp {
 		text-decoration: none;
-		
+
 		color: $white-color;
 		text-decoration: underline;
 	}
 	&__logo {
 		text-decoration: none;
-	
-		
+
 		color: $white-color;
 		letter-spacing: 2px;
 		cursor: pointer;
@@ -51,7 +48,7 @@ body {
 	}
 }
 .game {
-	margin: 2em 0.5em;
+	margin: 2em 0.5em 7.5em 0.5em;
 	padding: 1.5em 2em;
 	border: 2px solid black;
 	width: clamp(400px, 50vw, 750px);
@@ -88,7 +85,6 @@ body {
 		align-self: center;
 	}
 	&__heart {
-		
 		width: 36px;
 		height: 36px;
 	}
@@ -101,9 +97,7 @@ body {
 		display: grid;
 		grid-template-columns: repeat(11, 1fr);
 		grid-template-rows: repeat(15, 1fr);
-		&-square {
-		
-		}
+
 		&-loseScreen {
 			z-index: 2137;
 			width: 100%;
@@ -136,74 +130,97 @@ body {
 }
 
 .bin {
-	background-color: red;
-}
-.fruit {
-	
+	background-image: url('../img/bin.svg');
 	background-repeat: no-repeat;
 	background-position: center;
-	transform: scale(1.4);
 	overflow: hidden;
-	
+}
+.fruit {
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
 }
 .fruit1 {
-	background-image: url("../img/trash_bottle2.svg");	
+	background-image: url('../img/trash_bottle2.svg');
 }
-.fruit2{
-	background-image: url("../img/trash_apple.svg");
+.fruit2 {
+	background-image: url('../img/trash_apple.svg');
 }
-.fruit3{
-	background-image: url("../img/trash_bottle1.svg");
+.fruit3 {
+	background-image: url('../img/trash_bottle1.svg');
 }
-.fruit3{
-	background-image: url("../img/trash_cigarette.svg");
+.fruit4 {
+	background-image: url('../img/trash_can.svg');
 }
-.fruit4{
-	background-image: url("../img/trash_can.svg");
+.fruit5 {
+	background-image: url('../img/trash_cigarette.svg');
 }
-.fruit5{
-	background-image: url("../img/trash_banana.svg");
+.fruit6 {
+	background-image: url('../img/trash_banana.svg');
 }
-.fruit6{
-	background-image: url("../img/trash_banana.svg");
+.fruit7 {
+	background-image: url('../img/trash_bag.svg');
 }
-.fruit7{
-	background-image: url("../img/trash_trash_bag");
+
+.fruit8 {
+	background-image: url('../img/trash_fish.svg');
+}
+.fruit9 {
+	background-image: url('../img/trash_juice.svg');
+}
+.fruit10 {
+	background-image: url('../img/trash_tire.svg');
+}
+.fruit11 {
+	background-image: url('../img/trash_notebook.svg');
 }
 
 .lostHeart {
 	filter: grayscale(75%);
 }
 
-
-
 .arrow {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: fixed;
 	padding: 0.5em 0.8em;
+	width: 40%;
 	font-size: 5rem;
 	bottom: 0;
 	color: rgba(255, 255, 255, 0.674);
 	background-color: #22222233;
 	border-radius: 15px;
 	&-left {
-		left: 10%;
+		left: 0%;
 	}
 	&-right {
-		right: 10%;
+		right: 0%;
 	}
 }
 
+@media (min-width: 576px) {
+	.game{
+		margin-top: 2em;
+	}
+	.arrow {
+		margin: 0.2em;
+		padding: 0.6em 1.2em;
+		font-size: 5rem;
+		bottom: 0;
+		color: rgba(255, 255, 255, 0.674);
 
-@media (min-width:768px){
-
+		&-left {
+			left: 10%;
+		}
+		&-right {
+			right: 10%;
+		}
+	}
 }
 
-
-
 @media (min-width: 967px) {
-
-	.nav{
+	.nav {
 		justify-content: space-around;
 		font-size: 3.4rem;
 	}
@@ -216,6 +233,7 @@ body {
 			grid-row: 1/2;
 		}
 		&__hearts {
+			align-self: start;
 			grid-column: 1/2;
 			grid-row: 2/3;
 		}
@@ -224,15 +242,13 @@ body {
 			grid-row: 1/6;
 		}
 		.arrow {
+			width: auto;
 			margin: 0.2em;
-			display: block;
-			position: fixed;
+		
 			padding: 0.6em 1.2em;
 			font-size: 5rem;
 			bottom: 0;
 			color: rgba(255, 255, 255, 0.674);
-			background-color: #22222233;
-			border-radius: 15px;
 			&-left {
 				left: 30%;
 			}
@@ -241,23 +257,33 @@ body {
 			}
 		}
 	}
+
+	.bin {
+		transform: scale(1.2);
+	}
+	.fruit {
+		transform: scale(1.2);
+	}
 }
 @media (min-width: 1200px) {
-	.nav{
+	.nav {
 		font-size: 4rem;
 	}
 
 	.game {
-	
-	.arrow{
-		&-left{
-			left: 38%;
-		}
-		&-right{
-			right: 38%;
+		.arrow {
+			&-left {
+				left: 38%;
+			}
+			&-right {
+				right: 38%;
+			}
 		}
 	}
-	
+	.bin {
+		transform: scale(1.4);
 	}
-
+	.fruit {
+		transform: scale(1.4);
+	}
 }

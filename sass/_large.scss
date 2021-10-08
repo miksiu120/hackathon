@@ -25,6 +25,15 @@
 		}
 	}
 	.main {
+
+		.pollution{
+			&__box{
+				p{
+					font-size: 1.9rem;
+				}
+			}
+		}
+
 		.tidbits {
 			background-image: url(../img/background/treeBig.jpg);
 

@@ -10,25 +10,24 @@ const btnPlayAgain = document.querySelector('.again')
 let livesLeft = 2
 let isAlive = true
 let actualBinPosition = 159
+let respawnFruitTime = 4000
+let speedFallingTime = 1000
 
-
-
-
-let playAgain = () =>{
-
-	squares.forEach(x=>{
-		x.className="game__board-square "
-	}
-	)
-	loseScreen.style.display= "none"
-	livesLeft=2
-	lives.forEach(x=>{
-		
+let playAgain = () => {
+	respawnFruitTime = 4000
+	speedFallingTime = 1000
+	squares.forEach(x => {
+		x.className = 'game__board-square '
 	})
-	actualBinPosition=159
+	loseScreen.style.display = 'none'
+	livesLeft = 2
+	lives.forEach(x => {
+		x.classList.remove('lostHeart')
+	})
+	actualBinPosition = 159
 	squares[actualBinPosition].classList.add('bin')
-	points.textContent='0'
-	isAlive=true
+	points.textContent = '0'
+	isAlive = true
 }
 
 let getRandom = (min, max) => {
@@ -47,45 +46,45 @@ let checkHearts = x => {
 }
 let addingFruit = () => {
 	if (isAlive == true) {
-		squares[getRandom(0, 10)].classList.add('fruit',"fruit"+getRandom(1, 7))
+		squares[getRandom(0, 10)].classList.add('fruit', 'fruit' + getRandom(1, 10))
 	}
+	respawning = setTimeout(addingFruit, respawnFruitTime)
 }
-let gamePlay = () => {
+function gamePlay() {
 	if (isAlive == true) {
 		for (let i = squares.length - 1; i >= 0; i--) {
 			if (squares[i].classList.contains('fruit')) {
 				if (squares[i + 11] === undefined) {
 					isAlive = checkHearts(livesLeft)
-					squares[i].className="game__board-square"
+					squares[i].className = 'game__board-square'
 					if (isAlive == false) {
 						lives[livesLeft].classList.add('lostHeart')
-						break;
+						break
 					}
 					continue
 				} else if (squares[i + 11].classList.contains('bin')) {
 					points.textContent = 10 + parseInt(points.textContent)
-					squares[i].className="game__board-square"
-				
+					respawnFruitTime *= 0.97
+					speedFallingTime *= 0.97
+					squares[i].className = 'game__board-square'
 					continue
-				}
-				else{
-				squares[i + 11].classList=squares[i].classList
-				squares[i].classList="game__board-square"
+				} else {
+					squares[i + 11].classList = squares[i].classList
+					squares[i].classList = 'game__board-square'
 				}
 			}
 		}
 	} else {
-		
 		loseScreen.style.display = 'flex'
 		if (points.textContent != 0) endScore.textContent = points.textContent
 		else endScore.textContent = '0'
 	}
+	gaming = setTimeout(gamePlay, speedFallingTime)
 }
 
-setInterval(() => addingFruit(), 1000)
-setInterval(() => {
-	gamePlay()
-}, 500)
+let respawning = setTimeout(addingFruit, respawnFruitTime)
+let gaming = setTimeout(gamePlay, speedFallingTime)
+
 function arrowLeft() {
 	if (isAlive == true) {
 		if (actualBinPosition != 154) {
@@ -121,6 +120,7 @@ document.onkeydown = function (event) {
 			break
 	}
 }
+
 leftArrow.addEventListener('click', arrowLeft)
 rightArrow.addEventListener('click', arrowRight)
 btnPlayAgain.addEventListener('click', playAgain)
